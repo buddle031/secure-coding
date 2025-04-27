@@ -124,3 +124,4 @@ python poc.py
 이를 통해 서비스 개발 시 템플릿 렌더링 과정에서 입력값을 철저히 검증하고, 취약점을 예방하는 보안 조치가 필요함을 확인할 수 있었다.
 
 --- 
+![Image](https://github.com/user-attachments/assets/daadfddf-5e53-4cf1-bc6a-9b7e64732820)
