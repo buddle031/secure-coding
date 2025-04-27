@@ -54,7 +54,7 @@ http://localhost:8000/?name={{8*7}}
 - 결과 화면:
 
 ![Image](https://github.com/user-attachments/assets/402e2e64-3c8e-492a-9f26-3ea9e106e2c9)
-![Image](https://github.com/user-attachments/assets/502dcf05-434b-4329-92a5-18b85075f404)
+![Image](https://github.com/user-attachments/assets/f381ca1f-7c97-4e79-adb5-78b96683e8bd)
 
 ---
 
@@ -68,7 +68,7 @@ python poc.py
 
 - 출력 결과:
 
-![Image](https://github.com/user-attachments/assets/f381ca1f-7c97-4e79-adb5-78b96683e8bd)
+![Image](https://github.com/user-attachments/assets/502dcf05-434b-4329-92a5-18b85075f404)
 ![Image](https://github.com/user-attachments/assets/08c1953d-7c9a-48d7-af3e-021ab99a0e15)
 
 ---
