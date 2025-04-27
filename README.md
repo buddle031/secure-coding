@@ -37,9 +37,8 @@ docker compose up --build
 
 **실행 화면 캡처:**
 
-![docker-compose-up](./images/docker-compose-up.png)
-
-
+![Image](https://github.com/user-attachments/assets/daadfddf-5e53-4cf1-bc6a-9b7e64732820)
+![Image](https://github.com/user-attachments/assets/496fb46c-71ec-4a10-88bd-6904319996f9)
 
 ---
 
@@ -48,12 +47,14 @@ docker compose up --build
 - URL 접근:
 
 ```
+http://localhost:8000/?name={{7*7}}
 http://localhost:8000/?name={{8*7}}
 ```
 
 - 결과 화면:
 
-![browser-ssti-test](./images/browser-ssti-test.png)
+![Image](https://github.com/user-attachments/assets/402e2e64-3c8e-492a-9f26-3ea9e106e2c9)
+![Image](https://github.com/user-attachments/assets/502dcf05-434b-4329-92a5-18b85075f404)
 
 ---
 
@@ -67,7 +68,8 @@ python poc.py
 
 - 출력 결과:
 
-![poc-execution](./images/poc-execution.png)
+![Image](https://github.com/user-attachments/assets/f381ca1f-7c97-4e79-adb5-78b96683e8bd)
+![Image](https://github.com/user-attachments/assets/08c1953d-7c9a-48d7-af3e-021ab99a0e15)
 
 ---
 
@@ -75,7 +77,7 @@ python poc.py
 
 - 서버에서 `id` 명령어 결과를 반환:
 
-![id-result](./images/id-result.png)
+![Image](https://github.com/user-attachments/assets/76a3486c-77d2-4990-8f5f-13b8809ddf9c)
 
 ---
 
@@ -105,9 +107,9 @@ python poc.py
 
 | 항목 | 결과 |
 |:---|:---|
-| SSTI 취약점 존재 여부 | ✅ 존재 확인 |
-| 명령어 실행 성공 여부 | ✅ 서버 명령어(id) 실행 성공 |
-| PoC 성공 여부 | ✅ 성공적으로 서버 제어 |
+| SSTI 취약점 존재 여부 | o 존재 확인 |
+| 명령어 실행 성공 여부 | o 서버 명령어(id) 실행 성공 |
+| PoC 성공 여부 | o 성공적으로 서버 제어 |
 
 ---
 
@@ -124,4 +126,3 @@ python poc.py
 이를 통해 서비스 개발 시 템플릿 렌더링 과정에서 입력값을 철저히 검증하고, 취약점을 예방하는 보안 조치가 필요함을 확인할 수 있었다.
 
 --- 
-![Image](https://github.com/user-attachments/assets/daadfddf-5e53-4cf1-bc6a-9b7e64732820)
