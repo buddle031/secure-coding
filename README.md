@@ -31,3 +31,4 @@
 
 ```bash
 docker compose up --build
+![image](https://github.com/user-attachments/assets/5f373eb5-0024-417c-84fd-953ca1efab9c)
